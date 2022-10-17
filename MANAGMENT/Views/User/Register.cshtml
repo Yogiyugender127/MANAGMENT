@@ -1,0 +1,86 @@
+﻿
+@model MANAGMENT.Models.ViewModels.CustomerModelcs
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Customer Register</h2>
+
+<br /><br /><br />
+@using (Html.BeginForm("Register", "user", FormMethod.Post))
+{
+
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="control-label" l>Customer Name</label>
+            </div>
+            <div class="col-lg-6">
+                @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.CustomerName, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="control-label" l>Age</label>
+            </div>
+            <div class="col-lg-6">
+
+                @Html.DropDownListFor(x => x.Age, ViewBag.Age as SelectList, "--Select Age---", new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(x => x.Age, "", new { @class = "text-danger" })
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="control-label" l>Email ID</label>
+            </div>
+            <div class="col-lg-6">
+                @Html.TextBoxFor(x => x.EmailID, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.EmailID, "", new { @class = "text-danger" })
+                <span class="text-danger">@ViewBag.msg</span>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="control-label" l>Password</label>
+            </div>
+            <div class="col-lg-6">
+                @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label class="control-label" l>Confirm Password</label>
+            </div>
+            <div class="col-lg-6">
+                @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6">
+                <input id="Submit" type="submit" class="btn btn-primary" value="Register" />
+                <button type="button" class="btn btn-warning">Cancel</button>
+
+            </div>
+        </div>
+
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
