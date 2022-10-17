@@ -11,8 +11,7 @@ namespace MANAGMENT.Controllers
         public ActionResult Index()
         {
 
-            // vaadi vaadi thassa dhiyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-            //llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll
+            
             return View();
         }
 
@@ -25,6 +24,7 @@ namespace MANAGMENT.Controllers
 
         public ActionResult Contact()
         {
+            //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             ViewBag.Message = "Your contact page.";
 
             return View();
