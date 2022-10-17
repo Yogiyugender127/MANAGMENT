@@ -13,9 +13,10 @@ namespace MANAGMENT.Controllers
     {
         CompanyDBEntities db = new CompanyDBEntities();
         // GET: Admin
+        // uppi gaadu hero laantodu 
         public ActionResult Index()
         {
-            // Admin is the god to this application
+           // this is upender
             return View();
         }
         [HttpGet]
