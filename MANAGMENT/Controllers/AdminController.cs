@@ -15,6 +15,7 @@ namespace MANAGMENT.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            // Admin is the god to this application
             return View();
         }
         [HttpGet]
