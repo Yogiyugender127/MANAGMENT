@@ -2,9 +2,12 @@
     /*padding-top: 50px;
     padding-bottom: 20px;*/
     padding-top: 50px;
-    padding-bottom: 200px; /**/
+    padding-bottom: 200px; /**/ /*
 
-    background-image: url('../Images/stock-photo-smart-city-and-communication-network-concept-g-lpwa-low-power-wide-area-wireless-1570147828.jpg');
+    background-image: url('../Images/stock-photo-smart-city-and-communication-network-concept-g-lpwa-low-power-wide-area-wireless-1570147828.jpg');*/
+
+
+    background-image: url('../Images/1000_F_231328283_kD6rAlCqlEP9NSUcV3fUg6KVSAiF36Be.jpg');
     background-position: center;
     background-size: cover;
     margin: auto;
