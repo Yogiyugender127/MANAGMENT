@@ -13,9 +13,10 @@ namespace MANAGMENT.Controllers
     {
         CompanyDBEntities db = new CompanyDBEntities();
         // GET: Admin
+        // uppi gaadu hero laantodu 
         public ActionResult Index()
         {
-            // Admin is the god to this application
+           // this is upender
             return View();
         }
         [HttpGet]
@@ -64,6 +65,39 @@ namespace MANAGMENT.Controllers
 
                   
         }
+
+        public ActionResult Edit(int ?id)
+        {
+            //here, get the student from the database in the real application
+
+            //getting a student from collection for demo purpose
+            var customer = db.Customers.Find(id);
+
+            return View(customer);
+        }
+        [HttpPost]
+        public ActionResult EditCustomer(Customer obj)
+        {
+            //here, get the student from the database in the real application
+
+            //getting a student from collection for demo purpose
+            //db.Customers.Remove(Customer);
+            var customer = db.Customers.Where(s => s.CustomerID == obj.CustomerID).FirstOrDefault();
+
+            //var student = studentList.Where(s => s.StudentId == std.StudentId).FirstOrDefault();
+
+            db.Customers.Remove(customer);
+            db.Customers.Add(obj);
+            db.SaveChanges();
+
+            return RedirectToAction("Customer");
+        }
+
+
+
+
+
+
         public ActionResult Product()
         {
             var product = db.Products.ToList();
