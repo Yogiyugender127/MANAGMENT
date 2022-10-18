@@ -12,11 +12,9 @@ namespace MANAGMENT.Controllers
     public class AdminController : Controller
     {
         CompanyDBEntities db = new CompanyDBEntities();
-        // GET: Admin
-        // uppi gaadu hero laantodu 
+        
         public ActionResult Index()
         {
-           // this is upender
             return View();
         }
         [HttpGet]
@@ -31,9 +29,7 @@ namespace MANAGMENT.Controllers
         {
            
                 var product = db.Products.Find(id);
-           // var pid = db.Orders.Where(x => x.ProductID == product.ProductID).ToList();
-           // var orderpid = db.Orders.Find(pid.FirstOrDefault().OrderID);
-           // db.Orders.Remove(orderpid);
+     
                 db.Products.Remove(product);
                 db.SaveChanges();
                 return RedirectToAction("product", "Admin");
@@ -46,9 +42,6 @@ namespace MANAGMENT.Controllers
         {
            
                 var customer = db.Customers.Find(id);
-          //  var ordercustomer = db.Orders.Where(x=>x.CustomerID==customer.CustomerID).FirstOrDefault();
-           // var ordercustomer = db.Orders.Find(customer.CustomerID);
-         //   db.Customers.Remove(ordercustomer);
 
                 db.Customers.Remove(customer);
                var result= db.SaveChanges();
@@ -68,9 +61,6 @@ namespace MANAGMENT.Controllers
 
         public ActionResult Edit(int ?id)
         {
-            //here, get the student from the database in the real application
-
-            //getting a student from collection for demo purpose
             var customer = db.Customers.Find(id);
 
             return View(customer);
@@ -78,13 +68,9 @@ namespace MANAGMENT.Controllers
         [HttpPost]
         public ActionResult EditCustomer(Customer obj)
         {
-            //here, get the student from the database in the real application
-
-            //getting a student from collection for demo purpose
-            //db.Customers.Remove(Customer);
+           
+         
             var customer = db.Customers.Where(s => s.CustomerID == obj.CustomerID).FirstOrDefault();
-
-            //var student = studentList.Where(s => s.StudentId == std.StudentId).FirstOrDefault();
 
             db.Customers.Remove(customer);
             db.Customers.Add(obj);
@@ -124,7 +110,7 @@ namespace MANAGMENT.Controllers
                     var extention = Path.GetExtension(_filename);
                     if (extention == ".jpg" || extention == ".jpeg")
                     {
-                        // if(_filename.Length)
+                      
                         string _path = Path.Combine(Server.MapPath("~/Images"), product.id.ToString()+extention);
                         file.SaveAs(_path);
                         product.Image = "Images/" + product.id+extention;
