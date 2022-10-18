@@ -22,18 +22,18 @@
             </thead>
             @foreach (var item in Model)
             {
-                <tr>
+        <tr>
+            
 
-                    <td>@item.CustomerName</td>
-                    <td>@item.Age</td>
-                    <td>@item.EmailID</td>
-                    <td>
-                        <i class="glyphicon glyphicon-eye-open" title="Click to View"></i> | <a href="/Admin/Edit/@item.CustomerID">
-                            <i class="glyphicon glyphicon-edit" title="Click to Edit"> </i></a>|
-
-                            <a href="/Admin/Deletecustomer/@item.CustomerID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
-                    </td>
-                </tr>
+            <td>@item.CustomerName</td>
+            <td>@item.Age</td>
+            <td>@item.EmailID</td>
+            <td>
+                <a href="/Admin/Details/@item.CustomerID"> <i class="glyphicon glyphicon-eye-open" title="Click to View"></i> </a>|
+                <a href="/Admin/Edit/@item.CustomerID"><i class="glyphicon glyphicon-edit" title="Click to Edit"> </i> </a>
+                <a href="/Admin/Deletecustomer/@item.CustomerID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
+            </td>
+        </tr>
             }
         </table>
     </div>

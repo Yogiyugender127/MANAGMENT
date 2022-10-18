@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,11 +13,10 @@ namespace MANAGMENT.Controllers
     public class AdminController : Controller
     {
         CompanyDBEntities db = new CompanyDBEntities();
-        // GET: Admin
-        // uppi gaadu hero laantodu 
+      
         public ActionResult Index()
         {
-           // this is upender
+          
             return View();
         }
         [HttpGet]
@@ -25,7 +25,21 @@ namespace MANAGMENT.Controllers
             var customer = db.Customers.ToList();
             return View(customer);
         }
-       
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer user = db.Customers.Find(id);
+           
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
         public ActionResult Delete(int? id)
 
         {
@@ -49,7 +63,7 @@ namespace MANAGMENT.Controllers
           //  var ordercustomer = db.Orders.Where(x=>x.CustomerID==customer.CustomerID).FirstOrDefault();
            // var ordercustomer = db.Orders.Find(customer.CustomerID);
          //   db.Customers.Remove(ordercustomer);
-
+         
                 db.Customers.Remove(customer);
                var result= db.SaveChanges();
             if(result==1)
