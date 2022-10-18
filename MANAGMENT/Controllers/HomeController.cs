@@ -10,6 +10,7 @@ namespace MANAGMENT.Controllers
     {
         public ActionResult Index()
         { 
+            //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             return View();
         }
 
