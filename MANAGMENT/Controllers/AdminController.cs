@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,11 +13,10 @@ namespace MANAGMENT.Controllers
     public class AdminController : Controller
     {
         CompanyDBEntities db = new CompanyDBEntities();
-        // GET: Admin
-        // uppi gaadu hero laantodu 
+      
         public ActionResult Index()
         {
-           // this is upender
+          
             return View();
         }
         [HttpGet]
@@ -25,7 +25,21 @@ namespace MANAGMENT.Controllers
             var customer = db.Customers.ToList();
             return View(customer);
         }
-       
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer user = db.Customers.Find(id);
+           
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
         public ActionResult Delete(int? id)
 
         {
@@ -49,7 +63,7 @@ namespace MANAGMENT.Controllers
           //  var ordercustomer = db.Orders.Where(x=>x.CustomerID==customer.CustomerID).FirstOrDefault();
            // var ordercustomer = db.Orders.Find(customer.CustomerID);
          //   db.Customers.Remove(ordercustomer);
-
+         
                 db.Customers.Remove(customer);
                var result= db.SaveChanges();
             if(result==1)
@@ -68,23 +82,16 @@ namespace MANAGMENT.Controllers
 
         public ActionResult Edit(int ?id)
         {
-            //here, get the student from the database in the real application
-
-            //getting a student from collection for demo purpose
             var customer = db.Customers.Find(id);
-
             return View(customer);
         }
         [HttpPost]
         public ActionResult EditCustomer(Customer obj)
         {
-            //here, get the student from the database in the real application
-
-            //getting a student from collection for demo purpose
-            //db.Customers.Remove(Customer);
+            
             var customer = db.Customers.Where(s => s.CustomerID == obj.CustomerID).FirstOrDefault();
 
-            //var student = studentList.Where(s => s.StudentId == std.StudentId).FirstOrDefault();
+            
 
             db.Customers.Remove(customer);
             db.Customers.Add(obj);
@@ -103,6 +110,27 @@ namespace MANAGMENT.Controllers
             var product = db.Products.ToList();
             return View(product);
         }
+        public ActionResult EditProduct(int? id)
+        {
+            var product = db.Products.Find(id);
+            return View(product);
+        }
+        [HttpPost]
+        public ActionResult UpdateProduct(Product obj)
+        {
+
+            var product = db.Products.Where(s => s.ProductID == obj.ProductID).FirstOrDefault();
+
+
+
+            db.Products.Remove(product);
+            db.Products.Add(obj);
+            db.SaveChanges();
+
+            return RedirectToAction("Product");
+        }
+
+
         public ActionResult create()
         {
             return View();

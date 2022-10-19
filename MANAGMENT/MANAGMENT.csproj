@@ -135,10 +135,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Item.cs">
@@ -168,6 +183,9 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModels\AgeViewModel.cs" />
     <Compile Include="Models\ViewModels\CustomerModelcs.cs" />
     <Compile Include="Models\ViewModels\LoginModel.cs" />
@@ -186,7 +204,12 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\1000_F_231328283_kD6rAlCqlEP9NSUcV3fUg6KVSAiF36Be.jpg" />
     <Content Include="Images\administrator.jpg" />
+    <Content Include="Images\AppleiPhone13Pro.jpg" />
+    <Content Include="Images\OnePlusNordCE2.jpg" />
+    <Content Include="Images\Redmi10Prime.jpg" />
     <Content Include="Images\stock-photo-smart-city-and-communication-network-concept-g-lpwa-low-power-wide-area-wireless-1570147828.jpg" />
+    <Content Include="Images\xiaomiredmi9asport1.jpg" />
+    <Content Include="Images\Zz0wZGI4ZTI2NjhlNGQxMWViODVlN2QzNTI0ZjhkZTQyOA==.jpg" />
     <Content Include="Models\management.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>management.Context.cs</LastGenOutput>
@@ -242,6 +265,8 @@
     <Content Include="Views\Admin\create.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\EditProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
