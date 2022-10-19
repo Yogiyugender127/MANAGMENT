@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Serilog;
+using MANAGMENT;
 
 namespace MANAGMENT.Controllers
 {
@@ -23,7 +25,23 @@ namespace MANAGMENT.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+
+            try
+            {
+                Helper.WriteDebug(null, "Debug ");
+                Helper.WriteWarning(null, "Warning ");
+                throw new NotImplementedException();
+            }
+            catch (Exception e)
+            {
+                Helper.WriteError(e, "Error");
+                Helper.WriteFatal(e, "Fatal");
+                Helper.WriteVerbose(e, "Verbose");
+                throw;
+            }
+
+
+            //ViewBag.Message = "Your contact page.";
 
             return View();
         }
