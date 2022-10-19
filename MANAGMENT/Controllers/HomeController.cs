@@ -53,14 +53,11 @@ namespace MANAGMENT.Controllers
 
             return View();
         }
-        public ActionResult Details()
+       public ActionResult ProductDetails()
         {
-
-            var model = db.Products.ToList();
-
-            return View(model);
+            var item = db.Products.ToList();
+            return View(item);
         }
-
 
 
 
