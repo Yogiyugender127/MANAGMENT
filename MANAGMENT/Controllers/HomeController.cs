@@ -12,7 +12,6 @@ namespace MANAGMENT.Controllers
     {
         public ActionResult Index()
         { 
-            //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
             return View();
         }
 
@@ -23,27 +22,27 @@ namespace MANAGMENT.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
+        //public ActionResult Contact()
+        //{
 
-            try
-            {
-                Helper.WriteDebug(null, "Debug ");
-                Helper.WriteWarning(null, "Warning ");
-                throw new NotImplementedException();
-            }
-            catch (Exception e)
-            {
-                Helper.WriteError(e, "Error");
-                Helper.WriteFatal(e, "Fatal");
-                Helper.WriteVerbose(e, "Verbose");
-                throw;
-            }
+        //    try
+        //    {
+        //        Helper.WriteDebug(null, "Debug ");
+        //        Helper.WriteWarning(null, "Warning ");
+        //        throw new NotImplementedException();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Helper.WriteError(e, "Error");
+        //        Helper.WriteFatal(e, "Fatal");
+        //        Helper.WriteVerbose(e, "Verbose");
+        //        throw;
+        //    }
 
 
-            //ViewBag.Message = "Your contact page.";
+        //    //ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }
