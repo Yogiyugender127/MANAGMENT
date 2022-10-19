@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Serilog;
 using Serilog.Events;
+using Serilog.Sinks.File;
 
 namespace MANAGMENT
 {
@@ -15,10 +16,13 @@ namespace MANAGMENT
         private static readonly ILogger Verboselog;
         private static readonly ILogger Fatallog;
 
+        public static object RollingInterval { get; }
+
         static Helper()
         {
 
             // 5 MB = 5242880 bytes
+
 
             Errorlog = new LoggerConfiguration()
                 .MinimumLevel.Error()
@@ -27,7 +31,6 @@ namespace MANAGMENT
                 fileSizeLimitBytes: 5242880,
                 rollOnFileSizeLimit: true)
                 .CreateLogger();
-
             Warninglog = new LoggerConfiguration()
                 .MinimumLevel.Warning()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Warning/log.txt"),

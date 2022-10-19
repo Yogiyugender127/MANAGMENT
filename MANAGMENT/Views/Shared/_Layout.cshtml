@@ -22,9 +22,10 @@
                 <ul class="nav navbar-nav">
                     @if (ViewBag.customer != null)
                     {
-                        <li style=" color:white ">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("ProductDetails", "Details", "Home")</li>
                         <li>@Html.ActionLink("Log Out", "login", "user")</li>
 
                     }
@@ -32,7 +33,7 @@
                     {
 
 
-                        <li style=" color:white ">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                         <li>@Html.ActionLink("Register", "Register", "user")</li>
