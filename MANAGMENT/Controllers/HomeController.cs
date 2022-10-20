@@ -18,7 +18,7 @@ namespace MANAGMENT.Controllers
     {
 
 
-        CompanyDBEntities db = new CompanyDBEntities();
+       
         public ActionResult Index()
         { 
             return View();
@@ -55,6 +55,7 @@ namespace MANAGMENT.Controllers
         }
        public ActionResult ProductDetails()
         {
+            CompanyDBEntities db = new CompanyDBEntities();
             var item = db.Products.ToList();
             return View(item);
         }
