@@ -50,15 +50,15 @@
         <div class="bs-example" style="border:2px solid gray;">
 
             <div class="form-group centerlook">
-                <h1> Login </h1>
+                <h1 style="color:yellow"> Login </h1>
             </div>
             <div class="form-group centerlook">
-                <label>User Name: </label>
+                <label style="color:yellow">User Name:</label>
                 @Html.EditorFor(model => model.UserName)*
                 @Html.ValidationMessageFor(model => model.UserName)
             </div>
             <div class="form-group centerlook">
-                <label>Password:  </label>
+                <label style="color:yellow">Password:</label>
                 @Html.EditorFor(model => model.Password) *
                 @Html.ValidationMessageFor(model => model.Password)
 

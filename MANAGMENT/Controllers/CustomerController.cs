@@ -9,10 +9,11 @@ using MANAGMENT.Models.ViewModels;
 
 namespace MANAGMENT.Controllers
 {
-    private CompanyDBEntities db = new CompanyDBEntities();
+    
     public class CustomerController : Controller
     {
         // GET: Customer
+        CompanyDBEntities db = new CompanyDBEntities();
         public ActionResult Index(string username)
         {
             ViewBag.customer = username;

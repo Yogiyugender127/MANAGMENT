@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MANAGMENT.Models;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Serilog;
-using MANAGMENT;
-using Serilog.Sinks.File;
-using Serilog.Events;
-using MANAGMENT.Models;
-using MANAGMENT.Models.ViewModels;
 
 
 
@@ -17,8 +9,8 @@ namespace MANAGMENT.Controllers
     public class HomeController : Controller
     {
 
+        CompanyDBEntities db = new CompanyDBEntities();
 
-       
         public ActionResult Index()
         { 
             return View();
@@ -55,11 +47,20 @@ namespace MANAGMENT.Controllers
         }
        public ActionResult ProductDetails()
         {
-            CompanyDBEntities db = new CompanyDBEntities();
+            
             var item = db.Products.ToList();
             return View(item);
         }
-
+        public ActionResult ViewDetails(int? id)
+        {
+            
+            var item = db.Products.Find(id);
+            return View(item);
+        }
+        public ActionResult carousel()
+        {
+            return View();
+        }
 
 
     }

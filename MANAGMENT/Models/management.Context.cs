@@ -31,5 +31,7 @@ namespace MANAGMENT.Models
         public virtual DbSet<Login> Logins { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+
+        public System.Data.Entity.DbSet<MANAGMENT.Models.ViewModels.ProductModel> ProductModels { get; set; }
     }
 }

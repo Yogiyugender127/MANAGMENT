@@ -27,14 +27,14 @@ namespace MANAGMENT
             Errorlog = new LoggerConfiguration()
                 .MinimumLevel.Error()
                .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Error/log.txt"),
-                rollingInterval: RollingInterval.Day,
+                //rollingInterval: RollingInterval.Day,
                 fileSizeLimitBytes: 5242880,
                 rollOnFileSizeLimit: true)
                 .CreateLogger();
             Warninglog = new LoggerConfiguration()
                 .MinimumLevel.Warning()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Warning/log.txt"),
-                    rollingInterval: RollingInterval.Day,
+                    //rollingInterval: RollingInterval.Day,
                     fileSizeLimitBytes: 5242880,
                     rollOnFileSizeLimit: true)
                 .CreateLogger();
@@ -42,7 +42,7 @@ namespace MANAGMENT
             Debuglog = new LoggerConfiguration()
                 .MinimumLevel.Debug()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Debug/log.txt"),
-                    rollingInterval: RollingInterval.Day,
+                    //rollingInterval: RollingInterval.Day,
                     fileSizeLimitBytes: 5242880,
                     rollOnFileSizeLimit: true)
                 .CreateLogger();
@@ -50,7 +50,7 @@ namespace MANAGMENT
             Verboselog = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Verbose/log.txt"),
-                    rollingInterval: RollingInterval.Day,
+                    //rollingInterval: RollingInterval.Day,
                     fileSizeLimitBytes: 5242880,
                     rollOnFileSizeLimit: true)
                 .CreateLogger();
@@ -58,7 +58,7 @@ namespace MANAGMENT
             Fatallog = new LoggerConfiguration()
                 .MinimumLevel.Fatal()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Fatal/log.txt"),
-                    rollingInterval: RollingInterval.Day,
+                    //rollingInterval: RollingInterval.Day,
                     fileSizeLimitBytes: 5242880,
                     rollOnFileSizeLimit: true)
                 .CreateLogger();
