@@ -23,16 +23,25 @@ namespace MANAGMENT.Controllers
             var customer = db.Customers.ToList();
             return View(customer);
         }
-       
+
+        public ActionResult Placeorder()
+        {
+            var product = db.OrderItems.ToList();
+            return View(product);
+        }
+
+
+
         public ActionResult Delete(int? id)
 
         {
-           
-                var product = db.Products.Find(id);
+
+            //var product = db.Products.Find(id);
+            var product = db.OrderItems.Find(id);
      
-                db.Products.Remove(product);
+                db.OrderItems.Remove(product);
                 db.SaveChanges();
-                return RedirectToAction("product", "Admin");
+                return RedirectToAction("Placeorder", "Admin");
             
 
                   
@@ -143,6 +152,11 @@ namespace MANAGMENT.Controllers
 
             return View(product);
         }
+
+
+
+
+
 
     }
 

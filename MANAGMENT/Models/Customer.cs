@@ -18,6 +18,7 @@ namespace MANAGMENT.Models
         public Customer()
         {
             this.Orders = new HashSet<Order>();
+            this.OrderItems = new HashSet<OrderItem>();
         }
     
         public int CustomerID { get; set; }
@@ -31,5 +32,7 @@ namespace MANAGMENT.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

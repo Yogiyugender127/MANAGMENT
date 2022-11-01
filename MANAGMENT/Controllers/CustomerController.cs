@@ -17,6 +17,10 @@ namespace MANAGMENT.Controllers
         public ActionResult Index(string username)
         {
             ViewBag.customer = username;
+            TempData["name"] = username;
+
+            var orderDetails = db.OrderItems.Where(x => x.Customer.EmailID == username).ToList();
+            ViewBag.orderItems = orderDetails;
             return View();
         }
         public ActionResult Details()

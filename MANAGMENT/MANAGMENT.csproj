@@ -163,10 +163,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Category.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Item.cs">
@@ -193,12 +208,26 @@
     <Compile Include="Models\Order.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderItem.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Product.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModels\AgeViewModel.cs" />
+    <Compile Include="Models\ViewModels\CategoryModel.cs" />
     <Compile Include="Models\ViewModels\CustomerModelcs.cs" />
     <Compile Include="Models\ViewModels\LoginModel.cs" />
+    <Compile Include="Models\ViewModels\OrderItemsModel.cs" />
     <Compile Include="Models\ViewModels\OrderModel.cs" />
     <Compile Include="Models\ViewModels\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,9 +242,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\1000_F_231328283_kD6rAlCqlEP9NSUcV3fUg6KVSAiF36Be.jpg" />
+    <Content Include="Images\27.Product Showcase Carousel Template.jpg" />
     <Content Include="Images\7.jpg" />
     <Content Include="Images\administrator.jpg" />
     <Content Include="Images\AppleiPhone13Pro.jpg" />
+    <Content Include="Images\carousel-final-design-client-side.png" />
+    <Content Include="Images\download %283%29.jpg" />
+    <Content Include="Images\maxresdefault.jpg" />
     <Content Include="Images\OnePlusNordCE2.jpg" />
     <Content Include="Images\Redmi10Prime.jpg" />
     <Content Include="Images\stock-photo-smart-city-and-communication-network-concept-g-lpwa-low-power-wide-area-wireless-1570147828.jpg" />
@@ -279,6 +312,9 @@
     <Content Include="Views\Home\ViewDetails.cshtml" />
     <Content Include="Views\Home\carousel.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
+    <Content Include="Views\Admin\Placeorder.cshtml" />
+    <Content Include="Views\Home\OrderPage.cshtml" />
+    <Content Include="Views\Home\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

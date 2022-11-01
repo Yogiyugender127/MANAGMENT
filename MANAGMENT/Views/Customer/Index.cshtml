@@ -2,8 +2,64 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var list = ViewBag.orderItems;
+
 }
 <br /><br /><br />
 welcome to customer page
 
-Hi ! @ViewBag.customer
+Hi !<h3 id="username" style="color:darkorange"> @ViewBag.customer</h3>
+
+@if(list.Count>0)
+{
+<table class="bg-danger table-striped">
+    <tr>
+        <td></td>
+    </tr>
+    <tr class="row">
+        @*<th class="col-lg-3">cusomerName</th>*@
+        <th class="col-lg-3">Order Item</th>
+        <th class="col-lg-3">Quantity</th>
+        <th class="col-lg-3">Price</th>
+        <th class="col-lg-3">Order Date</th>
+
+    </tr>
+
+    @foreach (var item in list)
+    {
+<tr class="row">
+    @*@item.Product.DisplyName*@
+    @*<td class="col-lg-3">@ViewBag.customer</td>*@
+    <td class="col-lg-3">@item.Product.DisplayName</td>
+
+    <td class="col-lg-3">
+        @item.Qty
+    </td>
+
+    <td class="col-lg-3">
+        @item.OrderTotal
+    </td>
+    <td class="col-lg-3">
+        @item.CreatedOn
+    </td>
+</tr>
+            }
+        
+
+    </table>
+}
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(
+        function () {
+        
+         var y=   $("#username").text();
+
+            sessionStorage.setItem("Email", y );
+            var get = sessionStorage.getItem("Email");
+            console.log(get);
+
+
+        });
+
+</script>

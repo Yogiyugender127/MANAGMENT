@@ -1,8 +1,10 @@
 ﻿using MANAGMENT.Models;
+using MANAGMENT.Models.ViewModels;
+using System;
+using System.Collections;
 using System.Linq;
 using System.Web.Mvc;
-
-
+using static System.Net.WebRequestMethods;
 
 namespace MANAGMENT.Controllers
 {
@@ -53,7 +55,8 @@ namespace MANAGMENT.Controllers
         }
         public ActionResult ViewDetails(int? id)
         {
-            
+
+            TempData["productid"] = id;
             var item = db.Products.Find(id);
             return View(item);
         }
@@ -61,7 +64,50 @@ namespace MANAGMENT.Controllers
         {
             return View();
         }
+        public ActionResult OrderPage(OrderItemsModel model )
+     {
 
+            
+            var email = TempData["name"];
+            var productid = TempData["productid"];
+            model.CatergoryID = 111;
+            model.ProductID = Convert.ToInt32(productid);
+            model.ProductName = db.Products.Where(x => x.ProductID == model.ProductID).FirstOrDefault().DisplayName;
+            model.OrderTotal = db.Products.Where(x => x.ProductID == model.ProductID).FirstOrDefault().price;
+            model.Email = email.ToString();
+            model.CustomerID = db.Customers.Where(x => x.EmailID == model.Email).FirstOrDefault().CustomerID;
+            model.CustomerNAME = db.Customers.Where(x => x.EmailID == model.Email).FirstOrDefault().CustomerName;
+
+            model.Qty = 1;
+
+
+            return View(model);
+        }
+
+     
+
+        [HttpPost]
+        public ActionResult Orderconfirm(OrderItemsModel model)
+        {
+            OrderItem item = new OrderItem();
+            item.CatergoryID = model.CatergoryID;
+            item.ProductID = model.ProductID;
+            item.CustomerID = model.CustomerID;
+            item.Qty = model.Qty;
+            item.Discount = model.Discount;
+            item.OrderTotal = model.OrderTotal;
+            item.CreatedOn = DateTime.Now;
+            item.CreatedBy = model.CustomerNAME;
+            db.OrderItems.Add(item);
+            db.SaveChanges();
+            return View("Success");
+
+
+        }
+        public ActionResult Success()
+        {
+            return View();
+        }
 
     }
 }

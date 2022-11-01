@@ -14,6 +14,19 @@
         <AssociationConnector Association="CompanyDBModel.FK_Category_CategoryId" ManuallyRouted="false" />
         <AssociationConnector Association="CompanyDBModel.FK_Order_Customer" ManuallyRouted="false" />
         <AssociationConnector Association="CompanyDBModel.FK_Product_ProductId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CompanyDBModel.C__MigrationHistory" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CompanyDBModel.AspNetRole" Width="1.5" PointX="5.375" PointY="6.5" />
+        <EntityTypeShape EntityType="CompanyDBModel.AspNetUserClaim" Width="1.5" PointX="9.875" PointY="7.625" />
+        <EntityTypeShape EntityType="CompanyDBModel.AspNetUserLogin" Width="1.5" PointX="9.875" PointY="5" />
+        <EntityTypeShape EntityType="CompanyDBModel.AspNetUser" Width="1.5" PointX="7.625" PointY="5.375" />
+        <EntityTypeShape EntityType="CompanyDBModel.sysdiagram" Width="1.5" PointX="3.375" PointY="9.75" />
+        <AssociationConnector Association="CompanyDBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="CompanyDBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="CompanyDBModel.AspNetUserRoles" />
+        <EntityTypeShape EntityType="CompanyDBModel.OrderItem" Width="1.5" PointX="6" PointY="10.5" />
+        <AssociationConnector Association="CompanyDBModel.FK__OrderItem__Cater__29221CFB" />
+        <AssociationConnector Association="CompanyDBModel.FK__OrderItem__Custo__2B0A656D" />
+        <AssociationConnector Association="CompanyDBModel.FK__OrderItem__Produ__2A164134" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

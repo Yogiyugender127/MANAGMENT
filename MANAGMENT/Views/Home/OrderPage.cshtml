@@ -1,0 +1,130 @@
+﻿@model MANAGMENT.Models.ViewModels.OrderItemsModel
+
+@{
+    ViewBag.Title = "create";
+    Layout = "~/Views/Shared/View.cshtml";
+
+}
+<br />
+<br />
+<br />
+@using (Html.BeginForm("Orderconfirm", "home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal" border="3">
+    <h4 style="color:yellow" ;>Place order</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <h6 style="color:yellow"> @Html.LabelFor(model => model.CustomerNAME, htmlAttributes: new { @class = "control-label col-md-2" })</h6>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CustomerNAME, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.CatergoryID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.ProductID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.CustomerID, new { htmlAttributes = new { @class = "form-control" } })
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <h6 style="color:yellow"> @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })</h6>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h6 style="color:yellow">
+            @Html.LabelFor(model => model.ProductName, htmlAttributes: new { @class = "control-label col-md-2" })
+        </h6>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ProductName, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+    <div class="form-group">
+        <h6 style="color:yellow">
+            @Html.LabelFor(model => model.Qty, htmlAttributes: new { @class = "control-label col-md-2" })
+        </h6>
+        <div class="col-md-10">
+           
+            @Html.DropDownList("Qty", new List<SelectListItem>
+{
+    new SelectListItem{ Text="1", Value = "1" },
+    new SelectListItem{ Text="2", Value = "2" },
+    new SelectListItem{ Text="3", Value = "3" },
+    new SelectListItem{ Text="4", Value = "4" },
+    new SelectListItem{ Text="5", Value = "5" },
+    new SelectListItem{ Text="6", Value = "6" },
+    new SelectListItem{ Text="7", Value = "7" },
+    new SelectListItem{ Text="8", Value = "8" },
+    new SelectListItem{ Text="9", Value = "9" },
+    new SelectListItem{ Text="10", Value = "10" },
+  
+ })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h6 style="color:yellow">
+            @Html.LabelFor(model => model.OrderTotal, htmlAttributes: new { @class = "control-label col-md-2" })
+        </h6>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OrderTotal, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+
+
+   
+
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Confirm-Order" class="btn btn-primary" />
+        </div>
+    </div>
+
+</div>
+}
+
+<div>
+    <h6 style="color:yellow"> @Html.ActionLink("Back to List", "Index")</h6>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    var x = $("#Qty").val();
+    var y = $("#OrderTotal").val();
+
+    let emailid = sessionStorage.getItem("Email");
+   // sessionStorage.removeItem("Email");
+    console.log("hi");
+    console.log(emailid);
+    //$("#useremail").text(emailid);
+    $("#useremail").val(emailid);
+    console.log(x);
+    console.log(y);
+    $("#Qty").change(function () {
+        var x = $(this).val();
+        
+        var price = $("#OrderTotal").val();
+        var newprice = (x * price);
+        console.log(newprice);
+        $("#OrderTotal").val(newprice);
+
+    });
+
+</script>

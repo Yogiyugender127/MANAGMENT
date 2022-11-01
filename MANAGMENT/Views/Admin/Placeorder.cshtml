@@ -1,5 +1,8 @@
-﻿
-@model IEnumerable<MANAGMENT.Models.Product>
+﻿@*@model IEnumerable<MANAGMENT.Models.Order>*@
+    @model IEnumerable<MANAGMENT.Models.OrderItem>
+        @Model
+    
+
 @{
     ViewBag.Title = "Customer";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -9,34 +12,39 @@
 <br />
 <div class="jumbotron">
     <div class="table table-responsive">
-        <p>
-            <a href="Create" class=" btn btn-primary">Add Product</a>
-        </p>
+        <h1 style="color:skyblue">
+            OrderDetails
+           
+        </h1>
+        @*<p style="color:red" >
+            <a href="Create" class=" btn btn-primary"> OrderDetails</a> OrderDetails
+        </p>*@
         <table id="ProductTable" class="table table-responsive-sm table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Image</th>
+                    <th>Customer Name</th>
                     <th>Product Name</th>
-                    <th>Description</th>
-                    <th>price</th>
+                    <th>Quantity</th>
+                    <th>OrderTotal Price</th>
                     <th>Action</th>
                 </tr>
             </thead>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td><img src="../@item.Image" height="50" /></td>
-                    <td>@item.DisplayName</td>
+        <tr>
 
+            <td>@item.Customer.CustomerName</td>
+            <td>@item.Product.DisplayName</td>
+            <td>@item.Qty</td>
+       
+            <td>@item.OrderTotal</td>
+            @*<td>@item.Product.price</td>*@
+            <td>
+                <i class="glyphicon glyphicon-eye-open" title="Click to View"></i> |<i class="glyphicon glyphicon-edit" title="Click to Edit"> </i>|@*@Html.ActionLink("DELETE", "Delete", "Customer", new { @id = item.CustomerID })*@
 
-                    <td>@item.Description</td>
-                    <td>@item.price</td>
-                    <td>
-                        <i class="glyphicon glyphicon-eye-open" title="Click to View"></i> |<i class="glyphicon glyphicon-edit" title="Click to Edit"> </i>|@*@Html.ActionLink("DELETE", "Delete", "Customer", new { @id = item.CustomerID })*@
-
-                        <a href="/Admin/Delete/@item.ProductID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
-                    </td>
-                </tr>
+                <a href="/Admin/Delete/@item.OrderID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
+            </td>
+        </tr>
             }
         </table>
     </div>
@@ -54,7 +62,7 @@
     $('#ProductTable').DataTable({
         "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
         "columns": [
-            { "data": "Image", orderable: false  },
+            { "data": "Image", orderable: false },
             { "data": "Product Name" },
             { "data": "Description" },
             { "data": "price" },
