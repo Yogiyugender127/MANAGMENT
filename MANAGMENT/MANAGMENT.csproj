@@ -242,16 +242,27 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\1000_F_231328283_kD6rAlCqlEP9NSUcV3fUg6KVSAiF36Be.jpg" />
+    <Content Include="Images\10r-black.png" />
+    <Content Include="Images\10T-Black-L.png" />
+    <Content Include="Images\1640149350_1.png" />
+    <Content Include="Images\23dc6a3ba204d634e882981910e39ac0.jpg" />
     <Content Include="Images\27.Product Showcase Carousel Template.jpg" />
+    <Content Include="Images\41tFuOwv8ML._SL1080_.jpg" />
+    <Content Include="Images\6962ad7d9f9de24Apple-iphone-5c-5.jpg" />
     <Content Include="Images\7.jpg" />
     <Content Include="Images\administrator.jpg" />
+    <Content Include="Images\apple-iphone-14-plus-pakistan-priceoye-460nq.jpg" />
     <Content Include="Images\AppleiPhone13Pro.jpg" />
     <Content Include="Images\carousel-final-design-client-side.png" />
     <Content Include="Images\download %283%29.jpg" />
+    <Content Include="Images\f4cb88109f2578a5e7f205c2afc431fe.jpg" />
+    <Content Include="Images\FT-0t6MWAAMMjzj.jpg" />
+    <Content Include="Images\Karen-Green-540x540-L.png" />
     <Content Include="Images\maxresdefault.jpg" />
     <Content Include="Images\OnePlusNordCE2.jpg" />
     <Content Include="Images\Redmi10Prime.jpg" />
     <Content Include="Images\stock-photo-smart-city-and-communication-network-concept-g-lpwa-low-power-wide-area-wireless-1570147828.jpg" />
+    <Content Include="Images\VivoMobilePhonesandAccessoriesMobilePhones156.jpg" />
     <Content Include="Images\xiaomiredmi9asport1.jpg" />
     <Content Include="Models\management.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

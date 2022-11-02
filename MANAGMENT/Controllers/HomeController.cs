@@ -101,6 +101,7 @@ namespace MANAGMENT.Controllers
             db.OrderItems.Add(item);
             db.SaveChanges();
             return View("Success");
+            //return View("ProductDetails");
 
 
         }
