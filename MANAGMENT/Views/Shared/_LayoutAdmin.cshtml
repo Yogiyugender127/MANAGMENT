@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:skyblue">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,17 +16,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="~/Images/7.jpg" height="50" width="50">
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*<img src="~/Images/7.jpg" height="50" width="50">*@
+
+                <img src="~/Images/pullups.png"   height="50" width="50"/>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
-                    <li>@Html.ActionLink("Customer-Management", "Customer", "Admin")</li>
-                    <li>@Html.ActionLink("Product-Management", "Product", "Admin")</li>
-                    <li>@Html.ActionLink("Order-Management", "Placeorder", "Admin")</li>
+                    <li style="font-size:large">@Html.ActionLink("Customer-Management ||", "Customer", "Admin")</li>
+                    <li style="font-size:large">@Html.ActionLink("Product-Management ||", "Product", "Admin")</li>
+                    <li style="font-size:large">@Html.ActionLink("Order-Management ||", "Placeorder", "Admin")</li>
 
-                    <li>@Html.ActionLink("Log out", "login", "user")</li>
+                    <li style="font-size:large">@Html.ActionLink("Log out", "login", "user")</li>
                 </ul>
             </div>
         </div>
@@ -34,8 +36,8 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My e-shop Application</p>
+        <footer style="background-color:skyblue">
+            <p style="color:black">&copy; @DateTime.Now.Year - My e-shop Application</p>
         </footer>
     </div>
 

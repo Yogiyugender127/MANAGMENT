@@ -5,36 +5,39 @@ using System.Web;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.File;
+//using MANAGMENT.Helper;
 
 namespace MANAGMENT
 {
     public class Helper
     {
+
+
+
+
         private static readonly ILogger Errorlog;
         private static readonly ILogger Warninglog;
         private static readonly ILogger Debuglog;
         private static readonly ILogger Verboselog;
         private static readonly ILogger Fatallog;
 
-        public static object RollingInterval { get; }
-
         static Helper()
         {
 
             // 5 MB = 5242880 bytes
 
-
             Errorlog = new LoggerConfiguration()
                 .MinimumLevel.Error()
                .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Error/log.txt"),
-                //rollingInterval: RollingInterval.Day,
+                rollingInterval: RollingInterval.Day,
                 fileSizeLimitBytes: 5242880,
                 rollOnFileSizeLimit: true)
                 .CreateLogger();
+
             Warninglog = new LoggerConfiguration()
                 .MinimumLevel.Warning()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Warning/log.txt"),
-                    //rollingInterval: RollingInterval.Day,
+                    rollingInterval: RollingInterval.Day,
                     fileSizeLimitBytes: 5242880,
                     rollOnFileSizeLimit: true)
                 .CreateLogger();
@@ -42,7 +45,7 @@ namespace MANAGMENT
             Debuglog = new LoggerConfiguration()
                 .MinimumLevel.Debug()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Debug/log.txt"),
-                    //rollingInterval: RollingInterval.Day,
+                    rollingInterval: RollingInterval.Day,
                     fileSizeLimitBytes: 5242880,
                     rollOnFileSizeLimit: true)
                 .CreateLogger();
@@ -50,7 +53,7 @@ namespace MANAGMENT
             Verboselog = new LoggerConfiguration()
                 .MinimumLevel.Verbose()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Verbose/log.txt"),
-                    //rollingInterval: RollingInterval.Day,
+                    rollingInterval: RollingInterval.Day,
                     fileSizeLimitBytes: 5242880,
                     rollOnFileSizeLimit: true)
                 .CreateLogger();
@@ -58,7 +61,7 @@ namespace MANAGMENT
             Fatallog = new LoggerConfiguration()
                 .MinimumLevel.Fatal()
               .WriteTo.File(System.Web.Hosting.HostingEnvironment.MapPath("~/ErrorLog/Fatal/log.txt"),
-                    //rollingInterval: RollingInterval.Day,
+                    rollingInterval: RollingInterval.Day,
                     fileSizeLimitBytes: 5242880,
                     rollOnFileSizeLimit: true)
                 .CreateLogger();
@@ -102,5 +105,7 @@ namespace MANAGMENT
             //Fatal - critical errors causing complete failure of the application
             Fatallog.Write(LogEventLevel.Fatal, ex, message);
         }
+
     }
 }
+

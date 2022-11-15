@@ -4,7 +4,9 @@ using System;
 using System.Collections;
 using System.Linq;
 using System.Web.Mvc;
+using Serilog;
 using static System.Net.WebRequestMethods;
+
 
 namespace MANAGMENT.Controllers
 {
@@ -27,31 +29,53 @@ namespace MANAGMENT.Controllers
 
         public ActionResult Contact()
         {
+           
+                try
+                {
+                    Helper.WriteDebug(null, "Debug ");
+                    Helper.WriteWarning(null, "Warning ");
+                throw new NotImplementedException();
+            }
+                catch (Exception e)
+                {
+                    Helper.WriteError(e, "Error");
+                    Helper.WriteFatal(e, "Fatal");
+                    Helper.WriteVerbose(e, "Verbose");
+                //throw;
+            }
 
-            //try
-            //{
-            //    Helper.WriteDebug(null, "Debug ");
-            //    Helper.WriteWarning(null, "Warning ");
-            //    throw new NotImplementedException();
-            //}
-            //catch (Exception e)
-            //{
-            //    Helper.WriteError(e, "Error");
-            //    Helper.WriteFatal(e, "Fatal");
-            //    Helper.WriteVerbose(e, "Verbose");
-            //    throw;
-            //}
 
 
-            //ViewBag.Message = "Your contact page.";
 
             return View();
         }
-       public ActionResult ProductDetails()
+       public ActionResult ProductDetails( Category category)
         {
-            
-            var item = db.Products.ToList();
-            return View(item);
+
+            //var results = (from c in db.Categories
+            //               join p in db.Products on c.CategoryID equals p.CategoryId
+            //               select new { category = c, product = p })
+            //              .GroupBy(x => x.category.CategoryID)
+            //              .ToList();
+           if( category.Mobiles=1)
+            {
+                
+var results = db.Mobiles.ToList();
+                return View(results);
+            }
+           else
+            {
+
+                var results = db.Laptops.ToList();
+                return View(results);
+            }
+
+
+
+
+
+            //var item = db.Products.ToList();
+            //return View(item);
         }
         public ActionResult ViewDetails(int? id)
         {

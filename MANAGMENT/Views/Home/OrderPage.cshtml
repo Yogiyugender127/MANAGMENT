@@ -50,7 +50,7 @@
             @Html.LabelFor(model => model.Qty, htmlAttributes: new { @class = "control-label col-md-2" })
         </h6>
         <div class="col-md-10">
-           
+
             @Html.DropDownList("Qty", new List<SelectListItem>
 {
     new SelectListItem{ Text="1", Value = "1" },
@@ -63,7 +63,7 @@
     new SelectListItem{ Text="8", Value = "8" },
     new SelectListItem{ Text="9", Value = "9" },
     new SelectListItem{ Text="10", Value = "10" },
-  
+
  })
 
         </div>
@@ -81,7 +81,7 @@
 
 
 
-   
+
 
 
 
@@ -90,6 +90,7 @@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" value="Confirm-Order" class="btn btn-primary" />
+            <a href="@Url.Action("ProductDetails","Home")" class="btn btn-primary">Back</a>
         </div>
     </div>
 

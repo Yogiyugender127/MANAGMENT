@@ -187,6 +187,9 @@
     <Compile Include="Models\Item.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Laptop.cs">
+      <DependentUpon>management.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Login.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
@@ -205,7 +208,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>management.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Order.cs">
+    <Compile Include="Models\Mobile.cs">
       <DependentUpon>management.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderItem.cs">
@@ -242,26 +245,36 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\1000_F_231328283_kD6rAlCqlEP9NSUcV3fUg6KVSAiF36Be.jpg" />
+    <Content Include="Images\1000_F_73315920_xmM48kcs345RKMHqvfEcgVihQHRWJsj6.jpg" />
     <Content Include="Images\10r-black.png" />
     <Content Include="Images\10T-Black-L.png" />
     <Content Include="Images\1640149350_1.png" />
-    <Content Include="Images\23dc6a3ba204d634e882981910e39ac0.jpg" />
     <Content Include="Images\27.Product Showcase Carousel Template.jpg" />
     <Content Include="Images\41tFuOwv8ML._SL1080_.jpg" />
+    <Content Include="Images\618hqM-yxtL._SX679_.jpg" />
+    <Content Include="Images\61fy+u9uqPL._SL1500_.jpg" />
     <Content Include="Images\6962ad7d9f9de24Apple-iphone-5c-5.jpg" />
     <Content Include="Images\7.jpg" />
     <Content Include="Images\administrator.jpg" />
     <Content Include="Images\apple-iphone-14-plus-pakistan-priceoye-460nq.jpg" />
     <Content Include="Images\AppleiPhone13Pro.jpg" />
+    <Content Include="Images\bag-diagonal-view.png" />
     <Content Include="Images\carousel-final-design-client-side.png" />
     <Content Include="Images\download %283%29.jpg" />
     <Content Include="Images\f4cb88109f2578a5e7f205c2afc431fe.jpg" />
     <Content Include="Images\FT-0t6MWAAMMjzj.jpg" />
     <Content Include="Images\Karen-Green-540x540-L.png" />
     <Content Include="Images\maxresdefault.jpg" />
+    <Content Include="Images\MicrosoftTeams-image %283%29.png" />
+    <Content Include="Images\oneplus-8-polar-silver.jpg" />
+    <Content Include="Images\oneplus-9-pro-1.jpg" />
     <Content Include="Images\OnePlusNordCE2.jpg" />
+    <Content Include="Images\pngtree-mobile-phone-flat-the-internet-city-picture-image_932074.jpg" />
+    <Content Include="Images\pngtree-mobile-phone-qr-code-alipay-the-internet-picture-image_931935.jpg" />
+    <Content Include="Images\pullups.png" />
     <Content Include="Images\Redmi10Prime.jpg" />
     <Content Include="Images\stock-photo-smart-city-and-communication-network-concept-g-lpwa-low-power-wide-area-wireless-1570147828.jpg" />
+    <Content Include="Images\stock-vector-businessman-icon-564112600.jpg" />
     <Content Include="Images\VivoMobilePhonesandAccessoriesMobilePhones156.jpg" />
     <Content Include="Images\xiaomiredmi9asport1.jpg" />
     <Content Include="Models\management.Context.tt">
@@ -326,6 +339,10 @@
     <Content Include="Views\Admin\Placeorder.cshtml" />
     <Content Include="Views\Home\OrderPage.cshtml" />
     <Content Include="Views\Home\Success.cshtml" />
+    <Content Include="Views\Admin\Editproduct.cshtml" />
+    <Content Include="Views\Admin\EditOrder.cshtml" />
+    <Content Include="Views\Admin\Mobile.cshtml" />
+    <Content Include="Views\Admin\CreateMobile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

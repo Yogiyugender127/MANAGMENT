@@ -1,6 +1,6 @@
 ﻿
 <html>
-@{ 
+@{
     var mail = @ViewBag.customer;
 }
 <head>
@@ -9,10 +9,29 @@
     <title>@ViewBag.Title - Online Shoppingmall</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-   
+    <style>
+       /* ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a {
+                display: block;
+                padding: 8px;
+                background-color: #dddddd;
+            }*/
+    </style>
+
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:crimson">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:skyblue">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,58 +39,205 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="~/Images/7.jpg"  height="50" width="50">
+
+               
+                <img src="~/Images/bag-diagonal-view.png" height="50" width="50" />
+
+                @*<img src="~/Images/MicrosoftTeams-image (3).png" height="50" width="50">*@
                 @*<b style="color:white"> @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b>*@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    )
-                    @*&& ViewBag.SignInStatus != false*@       @if (ViewBag.customer != null)
+                <ul class="nav navbar-nav" style="color:black">
+                    @if (ViewBag.customer != null)
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Product", "ProductDetails", "Home")</li>
-                        <li>@Html.ActionLink("Log Out", "login", "user")</li>
+                        <li style="font-size:large">@Html.ActionLink("Home |", "Index", "Home")</li>
+                        <li style="font-size:large">@Html.ActionLink("About |", "About", "Home")</li>
+                        <li style="font-size:large">@Html.ActionLink("Contact |", "Contact", "Home")</li>
+                        <li style="font-size:large">@Html.ActionLink("Product |", "ProductDetails", "Home")</li>
 
+
+
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ProductCategory<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><b>@Html.ActionLink("Product-Details", "Details", "Product")</b></li>
+                                <li><b>@Html.ActionLink("Home", "Index", "Home")</b></li>
+                                <li><b>@Html.ActionLink("Contact", "Contact", "Home")</b></li>
+
+                            </ul>
+                        </li>
+
+
+
+
+
+
+                        <li style="font-size:large">@Html.ActionLink("Log Out", "login", "user")</li>
                     }
-                    @*else if (ViewBag.SignInStatus = false)
-                    {
 
-
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Register", "Register", "user")</li>
-                        <li>@Html.ActionLink("User Login", "login", "user")</li>
-
-                    }*@
                     else
                     {
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("User Login", "login", "user")</li>
-                        <li>@Html.ActionLink("New-Customer", "Register", "user")</li>
+                        <li style="font-size:large">@Html.ActionLink("Home |", "Index", "Home")</li>
+                        <li style="font-size:large">@Html.ActionLink("About |", "About", "Home")</li>
+                        <li style="font-size:large">@Html.ActionLink("Contact |", "Contact", "Home")</li>
+                        <li style="font-size:large">@Html.ActionLink("User Login |", "login", "user")</li>
+                        <li style="font-size:large">@Html.ActionLink("New-Customer", "Register", "user")</li>
                     }
 
                 </ul>
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+    @*<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </li>*@
+    @*<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Product-Details <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="#">@Html.ActionLink("Product-Details", "Details", "Product")</a> </li>
+                <li><a href="#">@Html.ActionLink("Home", "Index", "Home")</a> </li>
+                <li><a href="#">@Html.ActionLink("Contact", "Contact", "Home")</a></li>
+
+            </ul>
+        </li>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<li>
+
+
+
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Dropdown button
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Home</a>
+                    <a class="dropdown-item" href="#">Cantactus</a>
+                    <a class="dropdown-item" href="#">Aboutus</a>
+                </div>
+            </div>
+        </li>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="dropdown">
+            <button class="dropbtn">
+                Dropdown
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+
+                <a href="/Eficaz/Definitions/NewDefinition" style="background-color: rgb(105, 103, 104);">Define Extractions</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>*@
+    @*</li>*@
+
+
+    @*<li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="#" runat="server">Action</a></li>
+                <li><a href="#" runat="server">Action</a></li>
+                <li><a href="#" runat="server">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+            </ul>
+        </li>*@
+
+
+    @*<li style="font-size:large">
+            @Html.DropDownList("CategoryName", new List<SelectListItem>
+
+                {
+          new SelectListItem{ Text="Mobiles", Value = "Mobiles"},
+          new SelectListItem{ Text="Laptops", Value = "Laptops" },})
+        </li>*@
+
     <div class="container body-content">
         @RenderBody()
         @*<hr />*@
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My e-shop Application</p>
+        <footer style="background-color: skyblue">
+            @*<p>For Cantact: 9985928965</p> <p>For mail:management@support.com</p>*@
+
+            @*<h5 style="color:black"> &copy; @DateTime.Now.Year -My e-shop Application</h5>*@
+
+
+            @*<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <p>Support@eshopping.com</p>
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />
+
+                </svg>*@<h5 style="color:black">
+                &copy;     @DateTime.Now.ToLocalTime()    ''<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                </svg> e-Shopping
+            </h5>
+
         </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script>
-       ;
-    </script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
-</html>
+                    </html>

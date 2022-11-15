@@ -105,6 +105,20 @@
           <Property Name="RareCam" Type="varchar" MaxLength="100" />
           <Property Name="ItemImage" Type="varchar" MaxLength="200" />
         </EntityType>
+        <EntityType Name="Laptop">
+          <Key>
+            <PropertyRef Name="LaptopID" />
+          </Key>
+          <Property Name="LaptopID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand" Type="varchar" MaxLength="100" />
+          <Property Name="LaptopName" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="bigint" />
+          <Property Name="Colour" Type="varchar" MaxLength="100" />
+          <Property Name="RAM_Hardisk" Type="varchar" MaxLength="100" />
+          <Property Name="OperatingSystem" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryID" Type="int" />
+        </EntityType>
         <EntityType Name="Login">
           <Key>
             <PropertyRef Name="Id" />
@@ -114,21 +128,20 @@
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Role" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Order">
+        <EntityType Name="Mobile">
           <Key>
-            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="MobileID" />
           </Key>
-          <Property Name="OrderID" Type="int" Nullable="false" />
-          <Property Name="CategoryID" Type="int" Nullable="false" />
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="CustomerID" Type="int" Nullable="false" />
-          <Property Name="Qty" Type="int" />
-          <Property Name="Discount" Type="int" />
-          <Property Name="OrderTotal" Type="int" />
-          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
-          <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
-          <Property Name="CreatedOn" Type="datetime" />
-          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="MobileID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Brand" Type="varchar" MaxLength="100" />
+          <Property Name="MobileName" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="bigint" />
+          <Property Name="Colour" Type="varchar" MaxLength="100" />
+          <Property Name="RAM" Type="varchar" MaxLength="100" />
+          <Property Name="FrontCam" Type="varchar" MaxLength="100" />
+          <Property Name="RareCam" Type="varchar" MaxLength="100" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="80" />
         </EntityType>
         <EntityType Name="OrderItems">
           <Key>
@@ -145,6 +158,8 @@
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="UpdatedBy" Type="varchar" MaxLength="50" />
           <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="MobileID" Type="int" />
+          <Property Name="LaptopID" Type="int" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -171,6 +186,30 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <Association Name="FK__Laptop__Category__3F115E1A">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Laptop" Type="Self.Laptop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Laptop">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Mobile__Category__3C34F16F">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Mobile">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__OrderItem__Cater__29221CFB">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
           <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
@@ -204,18 +243,6 @@
             </Principal>
             <Dependent Role="OrderItems">
               <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Category_CategoryId">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="CategoryID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -275,27 +302,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Order_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        <Association Name="FK_LaptopOrder">
+          <End Role="Laptop" Type="Self.Laptop" Multiplicity="0..1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
+            <Principal Role="Laptop">
+              <PropertyRef Name="LaptopID" />
             </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="CustomerID" />
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="LaptopID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Product_ProductId">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
+        <Association Name="FK_MobileOrder">
+          <End Role="Mobile" Type="Self.Mobile" Multiplicity="0..1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
+            <Principal Role="Mobile">
+              <PropertyRef Name="MobileID" />
             </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="ProductID" />
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="MobileID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -340,11 +367,20 @@
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Laptop" EntityType="Self.Laptop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mobile" EntityType="Self.Mobile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Laptop__Category__3F115E1A" Association="Self.FK__Laptop__Category__3F115E1A">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Laptop" EntitySet="Laptop" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mobile__Category__3C34F16F" Association="Self.FK__Mobile__Category__3C34F16F">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Mobile" EntitySet="Mobile" />
+          </AssociationSet>
           <AssociationSet Name="FK__OrderItem__Cater__29221CFB" Association="Self.FK__OrderItem__Cater__29221CFB">
             <End Role="Category" EntitySet="Category" />
             <End Role="OrderItems" EntitySet="OrderItems" />
@@ -356,10 +392,6 @@
           <AssociationSet Name="FK__OrderItem__Produ__2A164134" Association="Self.FK__OrderItem__Produ__2A164134">
             <End Role="Product" EntitySet="Product" />
             <End Role="OrderItems" EntitySet="OrderItems" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Category_CategoryId" Association="Self.FK_Category_CategoryId">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Order" EntitySet="Order" />
           </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
@@ -377,13 +409,13 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
-          <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Order" EntitySet="Order" />
+          <AssociationSet Name="FK_LaptopOrder" Association="Self.FK_LaptopOrder">
+            <End Role="Laptop" EntitySet="Laptop" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
           </AssociationSet>
-          <AssociationSet Name="FK_Product_ProductId" Association="Self.FK_Product_ProductId">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Order" EntitySet="Order" />
+          <AssociationSet Name="FK_MobileOrder" Association="Self.FK_MobileOrder">
+            <End Role="Mobile" EntitySet="Mobile" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -401,8 +433,9 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Category_CategoryId" FromRole="Category" ToRole="Order" />
           <NavigationProperty Name="OrderItems" Relationship="CompanyDBModel.FK__OrderItem__Cater__29221CFB" FromRole="Category" ToRole="OrderItem" />
+          <NavigationProperty Name="Laptops" Relationship="CompanyDBModel.FK__Laptop__Category__3F115E1A" FromRole="Category" ToRole="Laptop" />
+          <NavigationProperty Name="Mobiles" Relationship="CompanyDBModel.FK__Mobile__Category__3C34F16F" FromRole="Category" ToRole="Mobile" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -416,7 +449,6 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
           <NavigationProperty Name="OrderItems" Relationship="CompanyDBModel.FK__OrderItem__Custo__2B0A656D" FromRole="Customer" ToRole="OrderItem" />
         </EntityType>
         <EntityType Name="Item">
@@ -442,25 +474,6 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="Order">
-          <Key>
-            <PropertyRef Name="OrderID" />
-          </Key>
-          <Property Name="OrderID" Type="Int32" Nullable="false" />
-          <Property Name="CategoryID" Type="Int32" Nullable="false" />
-          <Property Name="ProductID" Type="Int32" Nullable="false" />
-          <Property Name="CustomerID" Type="Int32" Nullable="false" />
-          <Property Name="Qty" Type="Int32" />
-          <Property Name="Discount" Type="Int32" />
-          <Property Name="OrderTotal" Type="Int32" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Category_CategoryId" FromRole="Order" ToRole="Category" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Product_ProductId" FromRole="Order" ToRole="Product" />
-        </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ProductID" />
@@ -475,64 +488,14 @@
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="price" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Product_ProductId" FromRole="Product" ToRole="Order" />
           <NavigationProperty Name="OrderItems" Relationship="CompanyDBModel.FK__OrderItem__Produ__2A164134" FromRole="Product" ToRole="OrderItem" />
         </EntityType>
-        <Association Name="FK_Category_CategoryId">
-          <End Role="Category" Type="Self.Category" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Category">
-              <PropertyRef Name="CategoryID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="CategoryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Order_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="CustomerID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Product_ProductId">
-          <End Role="Product" Type="Self.Product" Multiplicity="1" />
-          <End Role="Order" Type="Self.Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Product">
-              <PropertyRef Name="ProductID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="ProductID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="CompanyDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Items" EntityType="Self.Item" />
           <EntitySet Name="Logins" EntityType="Self.Login" />
-          <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="Products" EntityType="Self.Product" />
-          <AssociationSet Name="FK_Category_CategoryId" Association="Self.FK_Category_CategoryId">
-            <End Role="Category" EntitySet="Categories" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Product_ProductId" Association="Self.FK_Product_ProductId">
-            <End Role="Product" EntitySet="Products" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
           <EntitySet Name="C__MigrationHistory" EntityType="CompanyDBModel.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="CompanyDBModel.AspNetRole" />
           <EntitySet Name="AspNetUserClaims" EntityType="CompanyDBModel.AspNetUserClaim" />
@@ -592,6 +555,24 @@
           </AssociationSet>
           <AssociationSet Name="FK__OrderItem__Produ__2A164134" Association="CompanyDBModel.FK__OrderItem__Produ__2A164134">
             <End Role="Product" EntitySet="Products" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <EntitySet Name="Laptops" EntityType="CompanyDBModel.Laptop" />
+          <EntitySet Name="Mobiles" EntityType="CompanyDBModel.Mobile" />
+          <AssociationSet Name="FK__Laptop__Category__3F115E1A" Association="CompanyDBModel.FK__Laptop__Category__3F115E1A">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Laptop" EntitySet="Laptops" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Mobile__Category__3C34F16F" Association="CompanyDBModel.FK__Mobile__Category__3C34F16F">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Mobile" EntitySet="Mobiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LaptopOrder" Association="CompanyDBModel.FK_LaptopOrder">
+            <End Role="Laptop" EntitySet="Laptops" />
+            <End Role="OrderItem" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MobileOrder" Association="CompanyDBModel.FK_MobileOrder">
+            <End Role="Mobile" EntitySet="Mobiles" />
             <End Role="OrderItem" EntitySet="OrderItems" />
           </AssociationSet>
         </EntityContainer>
@@ -725,6 +706,10 @@
           <NavigationProperty Name="Category" Relationship="CompanyDBModel.FK__OrderItem__Cater__29221CFB" FromRole="OrderItem" ToRole="Category" />
           <NavigationProperty Name="Customer" Relationship="CompanyDBModel.FK__OrderItem__Custo__2B0A656D" FromRole="OrderItem" ToRole="Customer" />
           <NavigationProperty Name="Product" Relationship="CompanyDBModel.FK__OrderItem__Produ__2A164134" FromRole="OrderItem" ToRole="Product" />
+          <Property Name="MobileID" Type="Int32" />
+          <Property Name="LaptopID" Type="Int32" />
+          <NavigationProperty Name="Laptop" Relationship="CompanyDBModel.FK_LaptopOrder" FromRole="OrderItem" ToRole="Laptop" />
+          <NavigationProperty Name="Mobile" Relationship="CompanyDBModel.FK_MobileOrder" FromRole="OrderItem" ToRole="Mobile" />
         </EntityType>
         <Association Name="FK__OrderItem__Cater__29221CFB">
           <End Type="CompanyDBModel.Category" Role="Category" Multiplicity="0..1" />
@@ -759,6 +744,87 @@
             </Principal>
             <Dependent Role="OrderItem">
               <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Laptop">
+          <Key>
+            <PropertyRef Name="LaptopID" />
+          </Key>
+          <Property Name="LaptopID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LaptopName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int64" />
+          <Property Name="Colour" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RAM_Hardisk" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OperatingSystem" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="CompanyDBModel.FK__Laptop__Category__3F115E1A" FromRole="Laptop" ToRole="Category" />
+          <NavigationProperty Name="OrderItems" Relationship="CompanyDBModel.FK_LaptopOrder" FromRole="Laptop" ToRole="OrderItem" />
+        </EntityType>
+        <EntityType Name="Mobile">
+          <Key>
+            <PropertyRef Name="MobileID" />
+          </Key>
+          <Property Name="MobileID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Brand" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MobileName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int64" />
+          <Property Name="Colour" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RAM" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FrontCam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RareCam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="CategoryName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="CompanyDBModel.FK__Mobile__Category__3C34F16F" FromRole="Mobile" ToRole="Category" />
+          <NavigationProperty Name="OrderItems" Relationship="CompanyDBModel.FK_MobileOrder" FromRole="Mobile" ToRole="OrderItem" />
+        </EntityType>
+        <Association Name="FK__Laptop__Category__3F115E1A">
+          <End Type="CompanyDBModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="CompanyDBModel.Laptop" Role="Laptop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Laptop">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Mobile__Category__3C34F16F">
+          <End Type="CompanyDBModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="CompanyDBModel.Mobile" Role="Mobile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Mobile">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LaptopOrder">
+          <End Type="CompanyDBModel.Laptop" Role="Laptop" Multiplicity="0..1" />
+          <End Type="CompanyDBModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Laptop">
+              <PropertyRef Name="LaptopID" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="LaptopID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MobileOrder">
+          <End Type="CompanyDBModel.Mobile" Role="Mobile" Multiplicity="0..1" />
+          <End Type="CompanyDBModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mobile">
+              <PropertyRef Name="MobileID" />
+            </Principal>
+            <Dependent Role="OrderItem">
+              <PropertyRef Name="MobileID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -817,23 +883,6 @@
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="CompanyDBModel.Order">
-              <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="Qty" ColumnName="Qty" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -954,6 +1003,8 @@
           <EntitySetMapping Name="OrderItems">
             <EntityTypeMapping TypeName="CompanyDBModel.OrderItem">
               <MappingFragment StoreEntitySet="OrderItems">
+                <ScalarProperty Name="LaptopID" ColumnName="LaptopID" />
+                <ScalarProperty Name="MobileID" ColumnName="MobileID" />
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
@@ -965,6 +1016,37 @@
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="CatergoryID" ColumnName="CatergoryID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laptops">
+            <EntityTypeMapping TypeName="CompanyDBModel.Laptop">
+              <MappingFragment StoreEntitySet="Laptop">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="OperatingSystem" ColumnName="OperatingSystem" />
+                <ScalarProperty Name="RAM_Hardisk" ColumnName="RAM_Hardisk" />
+                <ScalarProperty Name="Colour" ColumnName="Colour" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="LaptopName" ColumnName="LaptopName" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="LaptopID" ColumnName="LaptopID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mobiles">
+            <EntityTypeMapping TypeName="CompanyDBModel.Mobile">
+              <MappingFragment StoreEntitySet="Mobile">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="RareCam" ColumnName="RareCam" />
+                <ScalarProperty Name="FrontCam" ColumnName="FrontCam" />
+                <ScalarProperty Name="RAM" ColumnName="RAM" />
+                <ScalarProperty Name="Colour" ColumnName="Colour" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="MobileName" ColumnName="MobileName" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="MobileID" ColumnName="MobileID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

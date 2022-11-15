@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body background="~/Images/1000_F_231328283_kD6rAlCqlEP9NSUcV3fUg6KVSAiF36Be.jpg">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+   <div class="navbar navbar-inverse navbar-fixed-top" style="background-color:skyblue">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,19 +16,31 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="~/Images/7.jpg" height="50" width="50">
+
+                @*<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>*@
+                @*<img src="~/Images/7.jpg" height="50" width="50">*@
+                <img src="~/Images/bag-diagonal-view.png" height="50" width="50" />
 
 
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <b>@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</b>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
 
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Log out", "login", "user")</li>
+                    <li style="font-size:large">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li style="font-size:large">@Html.ActionLink("About", "About", "Home")</li>
+                    <li style="font-size:large">@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                    <li style="font-size:large">@Html.ActionLink("Product |", "ProductDetails", "Home")</li>
+                    <li style="font-size:large">@Html.ActionLink("Log out", "login", "user")</li>
                 </ul>
             </div>
         </div>

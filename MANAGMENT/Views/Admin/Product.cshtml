@@ -32,10 +32,11 @@
                     <td>@item.Description</td>
                     <td>@item.price</td>
                     <td>
-                        <i class="glyphicon glyphicon-eye-open" title="Click to View"></i> |<i class="glyphicon glyphicon-edit" title="Click to Edit"> </i>|@*@Html.ActionLink("DELETE", "Delete", "Customer", new { @id = item.CustomerID })*@
+                        <i class="glyphicon glyphicon-eye-open" title="Click to View"></i> |<a href="/Admin/Editproduct/@item.ProductID">
+    <i class="glyphicon glyphicon-edit" title="Click to Edit"> </i>|@*@Html.ActionLink("DELETE", "Delete", "Customer", new { @id = item.CustomerID })*@
 
-                        <a href="/Admin/Delete/@item.ProductID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
-                    </td>
+    <a href="/Admin/Delete/@item.ProductID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
+</td>
                 </tr>
             }
         </table>

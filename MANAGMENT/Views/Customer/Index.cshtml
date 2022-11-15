@@ -6,7 +6,7 @@
 
 }
 <br /><br /><br />
-welcome to customer page
+            <h1 style="color:yellow">welcome to customer page</h1>
 
 Hi !<h3 id="username" style="color:darkorange"> @ViewBag.customer</h3>
 
@@ -41,6 +41,9 @@ Hi !<h3 id="username" style="color:darkorange"> @ViewBag.customer</h3>
     </td>
     <td class="col-lg-3">
         @item.CreatedOn
+    </td>
+    <td class="col-lg-3">
+        <a href="/Admin/Deleteorder/@item.OrderID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
     </td>
 </tr>
             }

@@ -9,11 +9,7 @@
         <EntityTypeShape EntityType="CompanyDBModel.Customer" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyDBModel.Item" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyDBModel.Login" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CompanyDBModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="CompanyDBModel.Product" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
-        <AssociationConnector Association="CompanyDBModel.FK_Category_CategoryId" ManuallyRouted="false" />
-        <AssociationConnector Association="CompanyDBModel.FK_Order_Customer" ManuallyRouted="false" />
-        <AssociationConnector Association="CompanyDBModel.FK_Product_ProductId" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CompanyDBModel.C__MigrationHistory" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="CompanyDBModel.AspNetRole" Width="1.5" PointX="5.375" PointY="6.5" />
         <EntityTypeShape EntityType="CompanyDBModel.AspNetUserClaim" Width="1.5" PointX="9.875" PointY="7.625" />
@@ -27,6 +23,12 @@
         <AssociationConnector Association="CompanyDBModel.FK__OrderItem__Cater__29221CFB" />
         <AssociationConnector Association="CompanyDBModel.FK__OrderItem__Custo__2B0A656D" />
         <AssociationConnector Association="CompanyDBModel.FK__OrderItem__Produ__2A164134" />
+        <EntityTypeShape EntityType="CompanyDBModel.Laptop" Width="1.5" PointX="3" PointY="16.5" />
+        <EntityTypeShape EntityType="CompanyDBModel.Mobile" Width="1.5" PointX="3" PointY="12.625" />
+        <AssociationConnector Association="CompanyDBModel.FK__Laptop__Category__3F115E1A" />
+        <AssociationConnector Association="CompanyDBModel.FK__Mobile__Category__3C34F16F" />
+        <AssociationConnector Association="CompanyDBModel.FK_LaptopOrder" />
+        <AssociationConnector Association="CompanyDBModel.FK_MobileOrder" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

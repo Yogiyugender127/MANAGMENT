@@ -1,0 +1,39 @@
+2022-11-03 12:20:29.697 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 54
+2022-11-03 12:20:56.137 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 54
+2022-11-03 12:38:09.479 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 56
+2022-11-03 23:05:03.497 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 56
+2022-11-03 23:12:07.733 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 56
+2022-11-04 13:55:42.967 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 56
+2022-11-06 17:27:26.747 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 56
+2022-11-06 17:30:29.178 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 56
+2022-11-10 20:25:05.447 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 37
+2022-11-15 11:22:53.224 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 37
+2022-11-15 11:50:19.216 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 37
+2022-11-15 12:10:19.548 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 37
+2022-11-15 12:22:37.512 +05:30 [VRB] Verbose
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 37

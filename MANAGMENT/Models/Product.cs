@@ -14,10 +14,11 @@ namespace MANAGMENT.Models
     
     public partial class Product
     {
+        internal object CategoryId;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Orders = new HashSet<Order>();
             this.OrderItems = new HashSet<OrderItem>();
         }
     
@@ -32,8 +33,6 @@ namespace MANAGMENT.Models
         public string Image { get; set; }
         public int price { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }

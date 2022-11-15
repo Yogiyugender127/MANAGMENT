@@ -25,9 +25,13 @@ namespace MANAGMENT.Models
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
+        public Nullable<int> MobileID { get; set; }
+        public Nullable<int> LaptopID { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Customer Customer { get; set; }
         public virtual Product Product { get; set; }
+        public virtual Laptop Laptop { get; set; }
+        public virtual Mobile Mobile { get; set; }
     }
 }

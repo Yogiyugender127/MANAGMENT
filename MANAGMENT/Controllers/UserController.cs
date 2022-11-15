@@ -27,6 +27,7 @@ namespace MANAGMENT.Controllers
 
         }
         [HttpPost]
+        //[ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model)
         {
             var user = db.Logins.Where(x => x.UserName == model.UserName && x.Password == model.Password).ToList();
@@ -68,7 +69,7 @@ namespace MANAGMENT.Controllers
 
                 int id = db.Customers.Count();
                 Customer customer = new Customer();
-                customer.CustomerID = id + 1191;
+                customer.CustomerID = id + 1299;
                 model.CustomerID = customer.CustomerID;
                 customer.CustomerName = model.CustomerName;
                 customer.Age = model.Age;
