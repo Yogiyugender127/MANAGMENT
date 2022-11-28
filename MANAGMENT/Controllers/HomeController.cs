@@ -98,6 +98,7 @@ namespace MANAGMENT.Controllers
         }
         public ActionResult carousel()
         {
+            throw new Exception("Something went wrong");
             return View();
         }
         public ActionResult OrderPage(OrderItemsModel model )
