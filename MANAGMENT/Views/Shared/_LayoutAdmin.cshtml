@@ -24,11 +24,11 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
 
-                    <li style="font-size:large">@Html.ActionLink("Customer-Management ||", "Customer", "Admin")</li>
-                    <li style="font-size:large">@Html.ActionLink("Product-Management ||", "Product", "Admin")</li>
-                    <li style="font-size:large">@Html.ActionLink("Order-Management ||", "Placeorder", "Admin")</li>
+                    <li style="font-size:large"><b>@Html.ActionLink("Customer-Management ||", "Customer", "Admin", new { area = "" }, new { @class = "navbar-brand" })</b></li>
+                    <li style="font-size:large"><b>@Html.ActionLink("Product-Management ||", "Product", "Admin", new { area = "" }, new { @class = "navbar-brand" })</b></li>
+                    @*<li style="font-size:large">@Html.ActionLink("Order-Management ||", "Placeorder", "Admin")</li>*@
 
-                    <li style="font-size:large">@Html.ActionLink("Log out", "login", "user")</li>
+                <li style="font-size:large"><b>@Html.ActionLink("Log out", "login", "user", new { area = "" }, new { @class = "navbar-brand" })</b></li>
                 </ul>
             </div>
         </div>

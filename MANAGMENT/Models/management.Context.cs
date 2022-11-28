@@ -14,8 +14,7 @@ namespace MANAGMENT.Models
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    using System.Collections.Generic;
-
+    
     public partial class CompanyDBEntities : DbContext
     {
         public CompanyDBEntities()
@@ -42,8 +41,7 @@ namespace MANAGMENT.Models
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Laptop> Laptops { get; set; }
         public virtual DbSet<Mobile> Mobiles { get; set; }
-        public object Category { get; internal set; }
-
+    
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
             var diagramnameParameter = diagramname != null ?
@@ -85,12 +83,7 @@ namespace MANAGMENT.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
         }
-
-        internal IEnumerable<object> GroupBy(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
-
+    
         public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
         {
             var diagramnameParameter = diagramname != null ?

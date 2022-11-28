@@ -1,7 +1,7 @@
 ﻿
-@model IEnumerable<MANAGMENT.Models.Mobile>
+@model IEnumerable<MANAGMENT.Models.Product>
 @{
-    //ViewBag.Title = "Customer";
+    ViewBag.Title = "Customer";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <br />
@@ -26,16 +26,16 @@
             {
                 <tr>
                     @*<td><img src="../@item.Image" height="50" /></td>*@
-                    <td>@item.MobileName</td>
+                    <td>@item.DisplayName</td>
 
 
-                    <td>@item.Brand</td>
-                    <td>@item.Price</td>
+                    <td>@item.Description</td>
+                    <td>@item.price</td>
                     <td>
-                        <i class="glyphicon glyphicon-eye-open" title="Click to View"></i> |<a href="/Admin/Editproduct/@item.MobileID">
+                        <i class="glyphicon glyphicon-eye-open" title="Click to View"></i> |<a href="/Admin/Editproduct/@item.ProductID">
                             <i class="glyphicon glyphicon-edit" title="Click to Edit"> </i>|@*@Html.ActionLink("DELETE", "Delete", "Customer", new { @id = item.CustomerID })*@
 
-                            <a href="/Admin/Delete/@item.MobileID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
+                            <a href="/Admin/Delete/@item.ProductID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
                     </td>
                 </tr>
             }

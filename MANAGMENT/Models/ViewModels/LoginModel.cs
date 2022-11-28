@@ -17,5 +17,6 @@ namespace MANAGMENT.Models.ViewModels
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Password { get; set; }
         public string Role { get; set; }
+        public bool Isactive { get; set; }
     }
 }

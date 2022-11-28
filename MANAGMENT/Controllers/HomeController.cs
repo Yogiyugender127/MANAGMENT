@@ -8,6 +8,9 @@ using Serilog;
 using static System.Net.WebRequestMethods;
 
 
+using System.IO;
+
+
 namespace MANAGMENT.Controllers
 {
     public class HomeController : Controller
@@ -15,10 +18,22 @@ namespace MANAGMENT.Controllers
 
         CompanyDBEntities db = new CompanyDBEntities();
 
+        //public ActionResult Index()
+        //{ 
+        //    return View();
+        //}
         public ActionResult Index()
-        { 
+        {
+
             return View();
+
+
         }
+
+
+            
+        
+
 
         public ActionResult About()
         {
@@ -41,7 +56,7 @@ namespace MANAGMENT.Controllers
                     Helper.WriteError(e, "Error");
                     Helper.WriteFatal(e, "Fatal");
                     Helper.WriteVerbose(e, "Verbose");
-                //throw;
+                throw;
             }
 
 
@@ -49,33 +64,30 @@ namespace MANAGMENT.Controllers
 
             return View();
         }
-       public ActionResult ProductDetails( Category category)
+       public ActionResult ProductDetails( )
+
+
         {
 
-            //var results = (from c in db.Categories
-            //               join p in db.Products on c.CategoryID equals p.CategoryId
-            //               select new { category = c, product = p })
-            //              .GroupBy(x => x.category.CategoryID)
-            //              .ToList();
-           if( category.Mobiles=1)
-            {
-                
-var results = db.Mobiles.ToList();
-                return View(results);
-            }
-           else
-            {
+            var product = db.Products.ToList();
 
-                var results = db.Laptops.ToList();
-                return View(results);
-            }
+            //  if(category.CategoryName=="Mobiles")
+            //  { 
+
+            //var x = db.Products.Where(a => a.CategoryID ==105).ToList();
+            //      return View(x);
+
+            //  }
+            //  else
+            //  {
+            //    var b=  db.Products.Where(c => c.CategoryID == 111).ToList();
+            //      return View(b);
+            //  }
 
 
+            return View(product);
 
 
-
-            //var item = db.Products.ToList();
-            //return View(item);
         }
         public ActionResult ViewDetails(int? id)
         {
@@ -124,7 +136,11 @@ var results = db.Mobiles.ToList();
             item.CreatedBy = model.CustomerNAME;
             db.OrderItems.Add(item);
             db.SaveChanges();
-            return View("Success");
+            var customername = db.Customers.Where(x => x.CustomerID == model.CustomerID).FirstOrDefault().EmailID;
+            return RedirectToAction("Index", "Customer", new { username = customername });
+            //return View("Success");
+
+
             //return View("ProductDetails");
 
 

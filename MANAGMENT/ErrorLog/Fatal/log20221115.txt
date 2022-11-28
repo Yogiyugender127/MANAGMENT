@@ -1,0 +1,9 @@
+2022-11-15 15:43:13.340 +05:30 [FTL] Fatal
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 37
+2022-11-15 15:46:02.603 +05:30 [FTL] Fatal
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 37
+2022-11-15 15:53:59.802 +05:30 [FTL] Fatal
+System.NotImplementedException: The method or operation is not implemented.
+   at MANAGMENT.Controllers.HomeController.Contact() in C:\Users\upender.barama\Source\Repos\Yogiyugender127\MANAGMENT\MANAGMENT\Controllers\HomeController.cs:line 37

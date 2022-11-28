@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MANAGMENT.Controllers;
-using MANAGMENT.Models.ViewModels;
+
 
 namespace MANAGMENT.Controllers
 {
@@ -119,23 +119,24 @@ namespace MANAGMENT.Controllers
 
         }
 
-        public ActionResult Mobile()
+        public ActionResult Mobile(int? id)
         {
+            ViewBag.customer = "user";
+            var category = db.Products.Where(a => a.CategoryID == id).ToList();
             var mobile = db.Mobiles.ToList();
-            return View(mobile);
+            return View(category);
+        }
+
+        public ActionResult Category(int? id)
+        {
+            ViewBag.customer = "user";
+
+            return View(db.Products.Where(a => a.CategoryID == id).ToList());
         }
         public ActionResult CreateMobile()
         {
             return View();
         }
-
-
-
-
-
-
-
-
 
         public ActionResult create()
         {
@@ -266,29 +267,10 @@ namespace MANAGMENT.Controllers
             db.OrderItems.Remove(Order);
             db.SaveChanges();
 
-            //var user = db.Logins.FirstOrDefault().Role == "Admin";
+           
 
-
-
-            //if (user == "Admin")
-                //    {
-                //        return RedirectToAction("Index", "Admin");
-                //    }
-                //    else
-                //    {
-                //        return RedirectToAction("Index", "Customer", new { username = user.FirstOrDefault().UserName });
-                //    }
-                //}
-
-                //if(db.AspNetUserLogins=="Admin")
                 return RedirectToAction("Placeorder", "Admin");
-            //var product = db.OrderItems.Find(id);
-
-            //db.OrderItems.Remove(product);
-            //    db.SaveChanges();
-            //    return RedirectToAction("Placeorder", "Admin");
-
-
+           
 
         }
 

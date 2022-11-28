@@ -261,6 +261,7 @@
     <Content Include="Images\bag-diagonal-view.png" />
     <Content Include="Images\carousel-final-design-client-side.png" />
     <Content Include="Images\download %283%29.jpg" />
+    <Content Include="Images\Error.jpg" />
     <Content Include="Images\f4cb88109f2578a5e7f205c2afc431fe.jpg" />
     <Content Include="Images\FT-0t6MWAAMMjzj.jpg" />
     <Content Include="Images\Karen-Green-540x540-L.png" />
@@ -343,6 +344,8 @@
     <Content Include="Views\Admin\EditOrder.cshtml" />
     <Content Include="Views\Admin\Mobile.cshtml" />
     <Content Include="Views\Admin\CreateMobile.cshtml" />
+    <Content Include="Views\Admin\Category.cshtml" />
+    <Content Include="Views\Shared\VerifyEmail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

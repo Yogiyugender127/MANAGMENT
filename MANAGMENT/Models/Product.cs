@@ -14,8 +14,6 @@ namespace MANAGMENT.Models
     
     public partial class Product
     {
-        internal object CategoryId;
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {

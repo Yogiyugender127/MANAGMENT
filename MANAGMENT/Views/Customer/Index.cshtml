@@ -5,64 +5,102 @@
     var list = ViewBag.orderItems;
 
 }
-<br /><br /><br />
-            <h1 style="color:yellow">welcome to customer page</h1>
+<br />
+<br />
+<br />
 
-Hi !<h3 id="username" style="color:darkorange"> @ViewBag.customer</h3>
+Hi !<h3 id="username" style="color:skyblue"> Hi -"@ViewBag.customername"</h3>
 
-@if(list.Count>0)
+<h1 style="color:yellow"><b>Cart-Items</b> </h1>
+
+@if (list.Count > 0)
 {
-<table class="bg-danger table-striped">
-    <tr>
-        <td></td>
-    </tr>
-    <tr class="row">
-        @*<th class="col-lg-3">cusomerName</th>*@
-        <th class="col-lg-3">Order Item</th>
-        <th class="col-lg-3">Quantity</th>
-        <th class="col-lg-3">Price</th>
-        <th class="col-lg-3">Order Date</th>
+<div class="jumbotron" style="background-color:paleturquoise">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart-plus-fill" viewBox="0 0 16 16">
+        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z" />
+    </svg>
+    <div class="table table-responsive">
+        <table class="bg-danger table-striped">
+            <tr>
+                <td></td>
+            </tr>
+            <tr class="row">
+                @*<th class="col-lg-3">cusomerName</th>*@
+                <th class="col-lg-3">Order Item</th>
+                <th class="col-lg-3">Quantity</th>
+                <th class="col-lg-3">Price</th>
+                <th class="col-lg-3">Order Date</th>
 
-    </tr>
+            </tr>
 
-    @foreach (var item in list)
-    {
-<tr class="row">
-    @*@item.Product.DisplyName*@
-    @*<td class="col-lg-3">@ViewBag.customer</td>*@
-    <td class="col-lg-3">@item.Product.DisplayName</td>
+            @foreach (var item in list)
+            {
+                <tr class="row">
+                    @*@item.Product.DisplyName*@
+                    @*<td class="col-lg-3">@ViewBag.customer</td>*@
+                    <td class="col-lg-3">@item.Product.DisplayName</td>
 
-    <td class="col-lg-3">
-        @item.Qty
-    </td>
+                    <td class="col-lg-3">
+                        @item.Qty
+                    </td>
 
-    <td class="col-lg-3">
-        @item.OrderTotal
-    </td>
-    <td class="col-lg-3">
-        @item.CreatedOn
-    </td>
-    <td class="col-lg-3">
-        <a href="/Admin/Deleteorder/@item.OrderID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
-    </td>
-</tr>
+                    <td class="col-lg-3">
+                        @item.OrderTotal;
+
+                    </td>
+                    <td class="col-lg-3">
+                        @item.CreatedOn
+                    </td>
+                    <td class="col-lg-3">
+                        @*<a href="/Admin/Deleteorder/@item.OrderID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>*@
+                        <a href="/Customer/Deleteorder/?id=@item.OrderID&&customerid=@item.CustomerID"> <i class="glyphicon glyphicon-trash" title="Click to Delete"></i></a>
+                    </td>
+
+                </tr>
             }
-        
 
-    </table>
+
+        </table>
+
+    </div>
+</div>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+            integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+
+
 }
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script>
     $(document).ready(
         function () {
-        
-         var y=   $("#username").text();
 
-            sessionStorage.setItem("Email", y );
+            var y = $("#username").text();
+
+            sessionStorage.setItem("Email", y);
             var get = sessionStorage.getItem("Email");
             console.log(get);
 
 
         });
+
+</script>
+<script>
+    $('#ProductTable').DataTable({
+        "lengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+        "columns": [
+            { "data": "Image", orderable: false },
+            { "data": "Product Name" },
+            { "data": "Description" },
+            { "data": "price" },
+
+
+            { "data": "Action", orderable: false }]
+    });
+
 
 </script>

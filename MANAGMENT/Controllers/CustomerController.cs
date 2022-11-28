@@ -18,6 +18,7 @@ namespace MANAGMENT.Controllers
         {
             ViewBag.customer = username;
             TempData["name"] = username;
+            ViewBag.customername = db.Customers.Where(x => x.EmailID == username).FirstOrDefault().CustomerName;
 
             var orderDetails = db.OrderItems.Where(x => x.Customer.EmailID == username).ToList();
             ViewBag.orderItems = orderDetails;
@@ -29,6 +30,22 @@ namespace MANAGMENT.Controllers
             var model = db.Products.ToList();
 
             return View(model);
+        }
+        public ActionResult Deleteorder(int? id,int? customerid)
+
+        {
+
+            var Order = db.OrderItems.Find(id);
+
+
+            db.OrderItems.Remove(Order);
+            db.SaveChanges();
+
+
+            var customername = db.Customers.Where(x => x.CustomerID == customerid).FirstOrDefault().EmailID;
+            return RedirectToAction("Index", "Customer", new { username = customername });
+
+
         }
 
 
